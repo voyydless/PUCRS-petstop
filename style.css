@@ -283,6 +283,52 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
+/* ===== FOOTER ===== */
+.footer-section {
+    background-color: var(--sand);
+    border-top: 2px solid var(--border);
+    color: var(--text);
+}
+
+.footer-section address {
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.footer-link {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--matcha);
+}
+
+.footer-divider {
+    border-color: var(--border);
+}
+
+footer a {
+    color: var(--matcha-dark);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.loja-status {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.loja-status.aberto  { color: #4a7c4e; }
+.loja-status.fechado { color: #9a4444; }
+
 /* ===== BOTÕES (OVERRIDE BOOTSTRAP) ===== */
 .btn-primary {
     background-color: var(--matcha);
