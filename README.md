@@ -13,7 +13,6 @@ O cabeçalho da página contém um menu de navegação com os seguintes links:
 | Nossos Produtos | Leva à seção de produtos da página inicial |
 | Nossos Serviços | Leva à seção de serviços da página inicial |
 | Contato | Leva ao rodapé com as informações de contato |
-| Objetivos e Metas | Abre a página com a documentação do projeto |
 
 ---
 

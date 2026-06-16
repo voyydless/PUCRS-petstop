@@ -10,20 +10,40 @@
 </head>
 <body>
 
-    <header>
-        <h1>PetStop</h1>
-        <p>A única parada com tudo o que seu melhor amigo precisa!</p>
-        <nav>
-            <ul>
-                <li><a href="#produtos">Nossos Produtos</a></li>
-                <li><a href="#servicos">Nossos Serviços</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="objetivos.html">Objetivos e Metas</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="hero-tagline" aria-live="polite">
+        <span id="greeting"></span> Bem vindo(a) à única parada com tudo o que seu melhor amigo precisa!
+    </div>
 
-    <hr>
+    <nav class="navbar navbar-expand-lg sticky-top" aria-label="Navegação principal">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-heart-fill me-2" aria-hidden="true"></i>PetStop
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Abrir ou fechar menu de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-1">
+                    <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary px-3" href="cadastro.html">
+                            <i class="bi bi-calendar-check me-1" aria-hidden="true"></i>Agendar
+                        </a>
+                    </li>
+                </ul>
+                <div class="ms-4 d-none d-lg-flex flex-column align-items-end clock-widget" aria-live="polite">
+                    <span id="live-clock" aria-label="Hora atual"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <main>
         
