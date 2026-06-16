@@ -1,0 +1,57 @@
+/* ===== VARIÁVEIS ===== */
+:root {
+    --matcha:        #7D9464;
+    --matcha-dark:   #5C7248;
+    --matcha-light:  #A8C490;
+    --matcha-xlight: #D4E6C3;
+    --cream:         #F4EFE6;
+    --sand:          #E8DFD0;
+    --earth:         #B8956A;
+    --earth-dark:    #9A7455;
+    --bark:          #6B4F35;
+    --text:          #2E2E1E;
+    --text-muted:    #6B6655;
+    --border:        #DDD5C5;
+    --white:         #FFFFFF;
+    --surface:       #FDFAF6;
+}
+
+/* ===== BASE ===== */
+body {
+    background-color: var(--cream);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+a {
+    color: var(--matcha-dark);
+}
+
+a:hover {
+    color: var(--matcha);
+}
+
+/* ===== BOTÕES (OVERRIDE BOOTSTRAP) ===== */
+.btn-primary {
+    background-color: var(--matcha);
+    border-color: var(--matcha);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: var(--matcha-dark) !important;
+    border-color: var(--matcha-dark) !important;
+    color: var(--white) !important;
+}
+
+.btn-outline-primary {
+    color: var(--matcha);
+    border-color: var(--matcha);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--matcha);
+    border-color: var(--matcha);
+    color: var(--white);
+}
