@@ -165,84 +165,126 @@
     </section>
 
     <main>
-        
-        <section id="produtos">
-            <h2>Nossos Produtos</h2>
+        <div class="container py-5">
 
-            <article>
-                <h3>Acessórios</h3>
-                <ul>
-                    <li>
-                        <img src="assets/cama1.png" alt="Cama de pet Azul Marinho" width="150">
-                        <h4>Cama London Azul Marinho</h4>
-                        <p>A Cama London Fábrica Pet possui design despojado e inovador, desenvolvida em moletom e sarja,<br>
-                            fabricada exclusivamente pela fábrica pet, proporcionando maior conforto e bem-estar ao seu pet.<br>
-                            Enchimento de fibra siliconada, deixando o produto super macio e agradável.<br> 
-                            Possui zíper em toda lateral e na almofada, o que facilita a lavagem do forro.<br>
-                            Disponível em quatro tamanhos, trazendo beleza, conforto e praticidade em um só produto!</p>
-                        <p><strong>Valor: R$ 242,90</strong></p>
-                    </li>
-                    <li>
-                        <img src="assets/brinquedo1.png" alt="Brinquedo em formato de osso para morder" width="150">
-                        <h4>Brinquedo Mordedor Ossinho</h4>
-                        <p> o primeiro mordedor 100% feito de plantas no Brasil, perfeito para cães com mordidas moderadas.<br>
-                            Produzido com biocomposto natural, incluindo bagaço de laranja, sendo totalmente livre de plástico<br>
-                            e microplásticos, ideal para proporcionar segurança total ao cachorro, eliminando o risco de<br> 
-                            ingestão de substâncias nocivas ou pedaços que possam causar problemas no organismo do animal.</p>
-                        <p><strong>Valor: R$ 41,50</strong></p>
-                    </li>
-                </ul>
-            </article>
+        <!-- Produtos -->
+        <section id="produtos" aria-labelledby="titulo-produtos" class="mb-5">
+            <h2 id="titulo-produtos" class="section-title text-center mb-5">Nossos Produtos</h2>
 
-            <article>
-                <h3>Rações Não Perecíveis</h3>
-                <ul>
-                    <li>
-                        <img src="assets/racao-cao.png" alt="Saco de ração para cães adultos pequenos" width="150">
-                        <h4>Ração Golden Formula Cães Adultos Raças Pequenas (3 kg)</h4>
-                        <p>Visando a nutrição completa e balanceada que os cães necessitam, A Ração Golden Formula<br> 
-                            Cães Adultos Raças Pequenas Carne foi desenvolvida para proporcionar uma vida mais longa e saudável.<br>
-                            Possui grãos de tamanho adaptado para facilitar a apreensão e mastigação, ideal para cães de<br>
-                            pequeno porte.
-</p>
-                        <p><strong>Valor: R$ 58,90</strong></p>
-                    </li>
-                    <li>
-                        <img src="assets/racao-gato.png" alt="Saco de ração para gatos castrados" width="150">
-                        <h4>Ração Golden Gatos Castrados(3 kg)</h4>
-                        <p>Altamente palatável, a ração para gatos castrados ajuda no controle do ganho de peso através da<br> 
-                            L-carnitina e possui teores reduzidos de calorias e gorduras. Contribui também para o trato<br> 
-                            urinário saudável por meio de minerais balanceados, além de uma seleção de ingredientes especiais<br> 
-                            que auxiliam na redução do odor das fezes.</p>
-                        <p><strong>Valor: R$ 76,90</strong></p>
-                    </li>
-                </ul>
-            </article>
+            <!-- Acessórios -->
+            <h3 class="subsection-title mb-3">Acessórios</h3>
+            <div class="row g-4 mb-5">
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card h-100 product-card" aria-label="Cama London Azul Marinho">
+                        <img src="assets/cama1.png"
+                             alt="Cama London Azul Marinho: cama pet em moletom e sarja, enchimento de fibra siliconada, disponível em quatro tamanhos"
+                             class="card-img-top" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title h6">Cama London Azul Marinho</h4>
+                            <p class="card-text small flex-grow-1">
+                                Design despojado em moletom e sarja com enchimento de fibra siliconada.
+                                Zíper em toda a lateral para fácil lavagem. Disponível em quatro tamanhos.
+                            </p>
+                            <p class="product-price">R$ 242,90</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card h-100 product-card" aria-label="Brinquedo Mordedor Ossinho">
+                        <img src="assets/brinquedo1.png"
+                             alt="Brinquedo Mordedor Ossinho: primeiro mordedor 100% feito de plantas no Brasil, produzido com biocomposto natural e bagaço de laranja, sem plástico"
+                             class="card-img-top" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title h6">Brinquedo Mordedor Ossinho</h4>
+                            <p class="card-text small flex-grow-1">
+                                Primeiro mordedor 100% feito de plantas no Brasil. Biocomposto natural com bagaço de laranja,
+                                totalmente livre de plástico. Ideal para mordidas moderadas.
+                            </p>
+                            <p class="product-price">R$ 41,50</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 d-none d-lg-flex align-items-center justify-content-center">
+                    <p class="text-center fst-italic" style="color: var(--text-muted); font-size: 0.95rem;">...e muito mais por vir!</p>
+                </div>
+            </div>
 
-            <article>
-                <h3>Higiene e Limpeza</h3>
-                <ul>
-                    <li>
-                        <img src="assets/tapete.png" alt="Pacote de tapetes higiênicos" width="150">
-                        <h4>Tapete Higiênico Go Pads Slim 80x60cm (30 unidades)</h4>
-                        <p>O Tapete Higiênico Go Pads Slim é indicado para cães de todas as raças e portes.<br> 
-                            Formato slim, bem fininho, com neutralizador de odores e com rápida absorção mantendo as<br> 
-                            patinhas do pet sequinhas, evitando sujeira pela casa.</p>
-                        <p><strong>Valor: R$ 77,90</strong></p>
-                    </li>
-                    <li>
-                        <img src="assets/caixa.png" alt="Caixa de areia com tampa verde" width="150">
-                        <h4>Banheiro Cat Toalete Furacão Pet </h4>
-                        <p>O Banheiro Cat Toalete Furacão Pet Verde é a escolha perfeita para quem busca um produto resistente,<br> 
-                            confortável e prático para a higiene do seu gato. Seu design fechado evita que a areia se espalhe<br> 
-                            durante o uso, oferecendo ao seu felino mais privacidade e conforto.</p>
-                        <p><strong>Valor: R$ 215,90</strong></p>
-                    </li>
-                </ul>
-            </article>
+            <!-- Rações -->
+            <h3 class="subsection-title mb-3">Rações Não Perecíveis</h3>
+            <div class="row g-4 mb-5">
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card h-100 product-card" aria-label="Ração Golden Cães Adultos Raças Pequenas 3 kg">
+                        <img src="assets/racao-cao.png"
+                             alt="Ração Golden Formula Cães Adultos Raças Pequenas 3 kg: ração com grãos de tamanho adaptado para facilitar a mastigação de cães de pequeno porte"
+                             class="card-img-top" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title h6">Ração Golden – Cães Adultos Raças Pequenas (3 kg)</h4>
+                            <p class="card-text small flex-grow-1">
+                                Nutrição completa e balanceada. Grãos de tamanho adaptado para facilitar
+                                a apreensão e mastigação de cães de pequeno porte.
+                            </p>
+                            <p class="product-price">R$ 58,90</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card h-100 product-card" aria-label="Ração Golden Gatos Castrados 3 kg">
+                        <img src="assets/racao-gato.png"
+                             alt="Ração Golden Gatos Castrados 3 kg: ração com L-carnitina, teores reduzidos de calorias e gorduras, para controle de peso de gatos castrados"
+                             class="card-img-top" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title h6">Ração Golden – Gatos Castrados (3 kg)</h4>
+                            <p class="card-text small flex-grow-1">
+                                Altamente palatável. L-carnitina e calorias reduzidas para controle de peso.
+                                Contribui para o trato urinário saudável e redução do odor das fezes.
+                            </p>
+                            <p class="product-price">R$ 76,90</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 d-none d-lg-flex align-items-center justify-content-center">
+                    <p class="text-center fst-italic" style="color: var(--text-muted); font-size: 0.95rem;">...e muito mais por vir!</p>
+                </div>
+            </div>
+
+            <!-- Higiene -->
+            <h3 class="subsection-title mb-3">Higiene e Limpeza</h3>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card h-100 product-card" aria-label="Tapete Higiênico Go Pads Slim 30 unidades">
+                        <img src="assets/tapete.png"
+                             alt="Tapete Higiênico Go Pads Slim 80x60cm pacote com 30 unidades: tapete slim com neutralizador de odores e absorção rápida para cães de todas as raças"
+                             class="card-img-top" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title h6">Tapete Higiênico Go Pads Slim 80×60 cm (30 un.)</h4>
+                            <p class="card-text small flex-grow-1">
+                                Indicado para cães de todas as raças e portes. Neutralizador de odores e
+                                absorção rápida mantém as patinhas do pet sequinhas.
+                            </p>
+                            <p class="product-price">R$ 77,90</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="card h-100 product-card" aria-label="Banheiro Cat Toalete Furacão Pet">
+                        <img src="assets/caixa.png"
+                             alt="Banheiro Cat Toalete Furacão Pet com tampa verde: caixa de areia fechada, resistente, que evita a dispersão de areia e oferece privacidade ao gato"
+                             class="card-img-top" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title h6">Banheiro Cat Toalete Furacão Pet</h4>
+                            <p class="card-text small flex-grow-1">
+                                Design fechado evita que a areia se espalhe. Oferece privacidade e conforto
+                                ao felino. Resistente e prático.
+                            </p>
+                            <p class="product-price">R$ 215,90</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 d-none d-lg-flex align-items-center justify-content-center">
+                    <p class="text-center fst-italic" style="color: var(--text-muted); font-size: 0.95rem;">...e muito mais por vir!</p>
+                </div>
+            </div>
         </section>
-
-        <hr>
 
         <section id="servicos">
             <h2>Nossos Serviços</h2>
@@ -264,6 +306,7 @@
             </article>
         </section>
 
+        </div><!-- /.container -->
     </main>
 
     <hr>
