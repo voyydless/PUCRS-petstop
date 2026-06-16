@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Agendamento – PetStop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .loja-status { font-size: 0.85rem; font-weight: 600; }
+        .loja-status.aberto  { color: #4a7c4e; }
+        .loja-status.fechado { color: #9a4444; }
+        .req { color: #b94040; }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <nav class="navbar navbar-expand-lg sticky-top" aria-label="Navegação principal">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-heart-fill me-2" aria-hidden="true"></i>PetStop
+            </a>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Abrir ou fechar menu de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html#produtos">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contato">Contato</a></li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary px-3" href="cadastro.html" aria-current="page">
+                            <i class="bi bi-calendar-check me-1" aria-hidden="true"></i>Agendar
+                        </a>
+                    </li>
+                </ul>
+                <div class="ms-4 d-none d-lg-flex flex-column align-items-end clock-widget" aria-live="polite">
+                    <span class="greeting" id="greeting"></span>
+                    <span id="live-clock" aria-label="Hora atual"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="container py-5" style="max-width: 780px;">
+
+        <h1 class="section-title text-center mb-1">Cadastro e Agendamento</h1>
+        <p class="text-center mb-4" style="color: var(--text-muted); font-size: 0.9rem;" id="live-date-page"
+           aria-live="polite"></p>
+
+        <form id="form-cadastro" novalidate aria-label="Formulário de cadastro e agendamento">
+
+            <!-- ===== SEÇÃO 1: DADOS DO CLIENTE ===== -->
+            <fieldset class="form-section mb-4">
+                <legend class="form-section-title">
+                    <i class="bi bi-person-fill me-2" aria-hidden="true"></i>Dados do Cliente
+                </legend>
+
+                <div class="row g-3">
+                    <div class="col-md-7">
+                        <label for="nome" class="form-label">
+                            Nome completo <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="nome" name="nome"
+                               placeholder="Seu nome completo"
+                               autocomplete="name"
+                               required
+                               aria-required="true"
+                               aria-describedby="nome-feedback">
+                        <div class="invalid-feedback" id="nome-feedback" role="alert">
+                            Por favor, informe seu nome completo.
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="cpf" class="form-label">
+                            CPF <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="cpf" name="cpf"
+                               placeholder="000.000.000-00"
+                               inputmode="numeric"
+                               maxlength="14"
+                               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                               required
+                               aria-required="true"
+                               aria-describedby="cpf-feedback">
+                        <div class="invalid-feedback" id="cpf-feedback" role="alert">
+                            Informe um CPF válido no formato 000.000.000-00.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="endereco" class="form-label">
+                            Endereço completo <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="endereco" name="endereco"
+                               placeholder="Rua, número, complemento, bairro, cidade – CEP"
+                               autocomplete="street-address"
+                               required
+                               aria-required="true"
+                               aria-describedby="endereco-feedback">
+                        <div class="invalid-feedback" id="endereco-feedback" role="alert">
+                            Por favor, informe seu endereço completo.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="telefone" class="form-label">
+                            Telefone / WhatsApp <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <input type="tel" class="form-control" id="telefone" name="telefone"
+                               placeholder="(51) 99999-9999"
+                               inputmode="numeric"
+                               autocomplete="tel"
+                               required
+                               aria-required="true"
+                               aria-describedby="telefone-feedback">
+                        <div class="invalid-feedback" id="telefone-feedback" role="alert">
+                            Por favor, informe seu telefone com DDD.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">
+                            E-mail <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <input type="email" class="form-control" id="email" name="email"
+                               placeholder="seuemail@exemplo.com"
+                               autocomplete="email"
+                               required
+                               aria-required="true"
+                               aria-describedby="email-feedback">
+                        <div class="invalid-feedback" id="email-feedback" role="alert">
+                            Informe um endereço de e-mail válido.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <fieldset>
+                            <legend class="form-label mb-1">
+                                Sexo <span class="req" aria-label="campo obrigatório">*</span>
+                            </legend>
+                            <div class="d-flex flex-wrap gap-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio"
+                                           name="sexo" id="sexo-m" value="masculino" required
+                                           aria-required="true">
+                                    <label class="form-check-label" for="sexo-m">Masculino</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio"
+                                           name="sexo" id="sexo-f" value="feminino">
+                                    <label class="form-check-label" for="sexo-f">Feminino</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio"
+                                           name="sexo" id="sexo-ni" value="nao-informar">
+                                    <label class="form-check-label" for="sexo-ni">Prefiro não informar</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- ===== SEÇÃO 2: DADOS DO PET ===== -->
+            <fieldset class="form-section mb-4">
+                <legend class="form-section-title">
+                    <i class="bi bi-heart-fill me-2" aria-hidden="true"></i>Dados do Pet
+                </legend>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="pet-nome" class="form-label">
+                            Nome do pet <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="pet-nome" name="pet-nome"
+                               placeholder="Como seu pet se chama?"
+                               required
+                               aria-required="true"
+                               aria-describedby="pet-nome-feedback">
+                        <div class="invalid-feedback" id="pet-nome-feedback" role="alert">
+                            Por favor, informe o nome do pet.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="pet-especie" class="form-label">
+                            Espécie <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <select class="form-select" id="pet-especie" name="pet-especie"
+                                required
+                                aria-required="true"
+                                aria-describedby="pet-especie-feedback">
+                            <option value="" disabled selected>Selecione a espécie…</option>
+                            <option value="cao">Cão</option>
+                            <option value="gato">Gato</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                        <div class="invalid-feedback" id="pet-especie-feedback" role="alert">
+                            Selecione a espécie do seu pet.
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="pet-raca" class="form-label">Raça</label>
+                        <input type="text" class="form-control" id="pet-raca" name="pet-raca"
+                               placeholder="Ex: Labrador, Persa, SRD…">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="pet-idade" class="form-label">Idade (anos)</label>
+                        <input type="number" class="form-control" id="pet-idade" name="pet-idade"
+                               min="0" max="30" step="1"
+                               placeholder="Ex: 3"
+                               aria-describedby="pet-idade-help">
+                        <div class="form-text" id="pet-idade-help">Aproximada</div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="pet-peso" class="form-label">Peso aproximado (kg)</label>
+                        <input type="number" class="form-control" id="pet-peso" name="pet-peso"
+                               min="0" max="200" step="0.1"
+                               placeholder="Ex: 5.5">
+                    </div>
+
+                    <div class="col-12">
+                        <fieldset>
+                            <legend class="form-label mb-1">Necessidades especiais</legend>
+                            <div class="d-flex flex-wrap gap-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"
+                                           id="nec-ansioso" name="necessidades" value="ansioso">
+                                    <label class="form-check-label" for="nec-ansioso">Pet ansioso</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"
+                                           id="nec-idoso" name="necessidades" value="idoso">
+                                    <label class="form-check-label" for="nec-idoso">Pet idoso</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"
+                                           id="nec-alergia" name="necessidades" value="alergia">
+                                    <label class="form-check-label" for="nec-alergia">Possui alergias</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"
+                                           id="nec-agrss" name="necessidades" value="agressivo">
+                                    <label class="form-check-label" for="nec-agrss">Comportamento agressivo</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- ===== SEÇÃO 3: SERVIÇO E AGENDAMENTO ===== -->
+            <fieldset class="form-section mb-4">
+                <legend class="form-section-title">
+                    <i class="bi bi-calendar-check me-2" aria-hidden="true"></i>Serviço e Agendamento
+                </legend>
+
+                <div class="row g-3">
+
+                    <div class="col-12">
+                        <fieldset>
+                            <legend class="form-label mb-2">
+                                Serviço desejado <span class="req" aria-label="campo obrigatório">*</span>
+                            </legend>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="radio" class="visually-hidden"
+                                           id="servico-sem-telebusca" name="servico"
+                                           value="sem-telebusca" required
+                                           aria-required="true"
+                                           aria-describedby="servico-feedback">
+                                    <label class="service-option" for="servico-sem-telebusca"
+                                           aria-label="Banho e Tosa sem Tele-busca por R$ 70,00. O cliente traz e busca o pet.">
+                                        <div class="service-option-content">
+                                            <i class="bi bi-scissors fs-3 text-matcha" aria-hidden="true"></i>
+                                            <span class="fw-semibold">Banho e Tosa</span>
+                                            <span class="badge-service">Sem Tele-busca</span>
+                                            <span class="price-tag">R$ 70,00</span>
+                                            <small style="color: var(--text-muted);">Traga e busque seu pet</small>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="radio" class="visually-hidden"
+                                           id="servico-com-telebusca" name="servico"
+                                           value="com-telebusca"
+                                           aria-describedby="servico-feedback">
+                                    <label class="service-option" for="servico-com-telebusca"
+                                           aria-label="Banho e Tosa com Tele-busca por R$ 95,00. Buscamos e entregamos seu pet em casa.">
+                                        <div class="service-option-content">
+                                            <i class="bi bi-truck fs-3 text-matcha" aria-hidden="true"></i>
+                                            <span class="fw-semibold">Banho e Tosa</span>
+                                            <span class="badge-service">Com Tele-busca</span>
+                                            <span class="price-tag">R$ 95,00</span>
+                                            <small style="color: var(--text-muted);">Buscamos e entregamos em casa</small>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback d-block mt-1" id="servico-feedback"
+                                 role="alert" style="display:none !important;" aria-live="polite"></div>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="data-agendamento" class="form-label">
+                            Data do agendamento <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <input type="date" class="form-control" id="data-agendamento" name="data-agendamento"
+                               required
+                               aria-required="true"
+                               aria-describedby="data-feedback data-help">
+                        <div class="form-text" id="data-help">Disponível a partir de amanhã.</div>
+                        <div class="invalid-feedback" id="data-feedback" role="alert">
+                            Selecione uma data válida para o agendamento.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="hora-agendamento" class="form-label">
+                            Horário <span class="req" aria-label="campo obrigatório">*</span>
+                        </label>
+                        <input type="time" class="form-control" id="hora-agendamento" name="hora-agendamento"
+                               min="08:00" max="17:00"
+                               required
+                               aria-required="true"
+                               aria-describedby="hora-feedback hora-help">
+                        <div class="form-text" id="hora-help">Atendimento: 8h às 17h</div>
+                        <div class="invalid-feedback" id="hora-feedback" role="alert">
+                            Selecione um horário entre 8h e 17h.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="observacoes" class="form-label">Observações adicionais</label>
+                        <textarea class="form-control" id="observacoes" name="observacoes"
+                                  rows="3"
+                                  maxlength="500"
+                                  placeholder="Informe detalhes adicionais: alergias, comportamento, produtos preferidos…"
+                                  aria-describedby="obs-ajuda"></textarea>
+                        <div class="form-text d-flex justify-content-between" id="obs-ajuda">
+                            <span>Opcional</span>
+                            <span><span id="obs-count">0</span>/500 caracteres</span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox"
+                                   id="aceite-termos" name="aceite-termos"
+                                   required
+                                   aria-required="true"
+                                   aria-describedby="termos-feedback">
+                            <label class="form-check-label" for="aceite-termos">
+                                Li e aceito os
+                                <a href="#" class="text-matcha">Termos de Uso</a> e a
+                                <a href="#" class="text-matcha">Política de Privacidade</a>
+                                <span class="req" aria-label="campo obrigatório">*</span>
+                            </label>
+                            <div class="invalid-feedback" id="termos-feedback" role="alert">
+                                Você deve aceitar os termos para prosseguir.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <p class="small mb-4" style="color: var(--text-muted);">
+                <span class="req">*</span> Campos obrigatórios
+            </p>
+
+            <div class="text-center">
+                <a href="index.html" class="btn btn-outline-primary me-3">
+                    <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>Voltar
+                </a>
+                <button type="submit" class="btn btn-primary btn-lg px-5">
+                    <i class="bi bi-check-circle me-2" aria-hidden="true"></i>Confirmar Agendamento
+                </button>
+            </div>
+        </form>
+
+    </main>
+
+    <!-- ===== MODAL DE CONFIRMAÇÃO ===== -->
+    <div class="modal fade" id="modalSucesso" tabindex="-1"
+         aria-labelledby="modalSucessoLabel" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-2">
+                <div class="modal-body p-5">
+                    <i class="bi bi-check-circle-fill fs-1 mb-3" style="color: var(--matcha);" aria-hidden="true"></i>
+                    <h2 class="h4 mb-3" id="modalSucessoLabel">Agendamento Confirmado!</h2>
+                    <p class="mb-4" id="modal-resumo" style="color: var(--text-muted);"></p>
+                    <p class="small mb-4" style="color: var(--text-muted);">
+                        <i class="bi bi-whatsapp me-1" aria-hidden="true"></i>
+                        Entraremos em contato pelo WhatsApp para confirmar.
+                    </p>
+                    <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer id="contato" class="footer-section py-4 mt-3" aria-label="Rodapé">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <h3 class="h6 fw-bold mb-2">
+                        <i class="bi bi-heart-fill me-2" aria-hidden="true"></i>PetStop
+                    </h3>
+                    <address style="font-style:normal; font-size: 0.85rem; color: var(--text-muted);">
+                        <i class="bi bi-geo-alt me-1" aria-hidden="true"></i>Rua Super Legal, 123 – Centro
+                        &nbsp;|&nbsp;
+                        <a href="tel:+5551999999999">(51) 99999-9999</a>
+                    </address>
+                    <span id="store-status" aria-live="polite"></span>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <nav aria-label="Links do rodapé">
+                        <a href="#" class="footer-link d-inline me-3">Política de Privacidade</a>
+                        <a href="#" class="footer-link d-inline me-3">Termos de Uso</a>
+                        <a href="index.html" class="footer-link d-inline">Voltar ao início</a>
+                    </nav>
+                </div>
+            </div>
+            <hr class="footer-divider mt-3">
+            <p class="text-center small mb-0" style="color: var(--text-muted);">
+                &copy; 2026 PetStop. Todos os direitos reservados. Desenvolvido por Sami Ford.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Botão voltar ao topo -->
+    <button id="back-to-top" class="btn btn-primary rounded-circle back-to-top"
+            aria-label="Voltar ao topo da página" title="Voltar ao topo">
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        document.getElementById('form-cadastro').addEventListener('submit', function () {
+            const servicoSelecionado = document.querySelector('input[name="servico"]:checked');
+            const feedback = document.getElementById('servico-feedback');
+            if (!servicoSelecionado) {
+                feedback.textContent = 'Selecione um dos serviços para continuar.';
+                feedback.style.display = 'block';
+            } else {
+                feedback.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
